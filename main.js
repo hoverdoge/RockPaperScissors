@@ -15,29 +15,14 @@ function playerInput(pChoice)
   return pChoice;
 };
 
-
 //gets the computer's choice
 function aiChoice()
 {
   //gets a number between 0 and 2 inclusive to switch on
-  var cChoice;
   let numChoice = Math.floor(Math.random() * 3);
   //assigns rps based on random number that was generated
-  switch(numChoice)
-  {
-    case numChoice = 0:
-      cChoice = 'rock';
-      break;
-    case numChoice = 1:
-      cChoice = 'paper';
-      break;
-    case numChoice = 2:
-      cChoice = 'scissors';
-      break;
-    default:
-      cChoice = 'bruh you broke it';
-      break;
-  }
+  let cChoiceArray = ['rock', 'paper', 'scissors'];
+  let cChoice = cChoiceArray[numChoice];
   //prints computer choice
   console.log(`The computer chose ${cChoice}`);
   return cChoice;
@@ -49,7 +34,8 @@ function findWinner(finalPlayer, finalAi){
   if (finalPlayer === finalAi)
   {
     return 'No one won';
-  }  
+  }
+
   //checks for player rock choice
   else if (finalPlayer === 'rock')
   {
@@ -61,7 +47,7 @@ function findWinner(finalPlayer, finalAi){
     {
       return 'You won!';
     }
-    
+
   }
 
   //checks for player paper choice
@@ -88,7 +74,7 @@ function findWinner(finalPlayer, finalAi){
     {
       return 'You won!';
     }
-    
+
   }
   else if (finalPlayer === 'bomb')
   {
@@ -96,13 +82,12 @@ function findWinner(finalPlayer, finalAi){
   }
 }
 //puts functions together
-function playGame() 
+function playGame()
 {
   //input goes here                  \/
-   const finalPlayer = playerInput('INPUT');
+   const finalPlayer = playerInput('PaPeR');
   //                                 ^
    const finalAi = aiChoice();
    console.log(findWinner(finalPlayer, finalAi));
 }
 playGame();
-
